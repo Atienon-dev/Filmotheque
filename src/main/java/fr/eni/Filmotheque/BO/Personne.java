@@ -24,6 +24,21 @@ public class Personne {
 	private List<Film> filmJoue;
 	
 	private List<Film> filmRealise;
+
+/*------------------------------------------------------------------------------------------------------------------------
+  Constructors
+------------------------------------------------------------------------------------------------------------------------*/
+	public Personne() {
+		super();
+		
+	}
+	
+	public Personne(Long id, String nom, String prenom) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
 	
 /*------------------------------------------------------------------------------------------------------------------------
   Getters

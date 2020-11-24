@@ -33,12 +33,32 @@
 		
 		<h2 style="text-align:center">${film.getTitre()}</a></h2>
 		<p>${film.getDescription()}</p>	
-		<p>Réalisateur : ${film.getRealisateur().getNom()}	${film.getRealisateur().getPrenom()}</p>
+		
+		<p>Réalisateur :
+			<c:choose>
+	            <c:when test="${empty film.getRealisateur()}">
+	              <a href="ajout_real"> ajouter un réalisateur</a>
+	            </c:when>
+	            <c:otherwise>
+	                ${film.getRealisateur().getNom()}	${film.getRealisateur().getPrenom()}
+	            </c:otherwise>
+	        </c:choose> 
+        </p>
+        
 		<p>Acteurs :
-		<c:forEach items="${film.getActeurs()}" var="acteur">
-		${acteur.getNom()} ${acteur.getPrenom()}</n>
-	    </c:forEach>
-	    </p>
+			<c:choose>
+				<c:when test="${empty film.getActeurs()}">
+	              <a href="ajout_acteurs"> ajouter des acteurs</a>
+	            </c:when>
+	            <c:otherwise>
+	                <ol style="list-style:none;">
+		                <c:forEach items="${film.getActeurs()}" var="acteur">
+		                <li>${acteur.getNom()} ${acteur.getPrenom()}</li>
+			    		</c:forEach>
+		    		</ol>
+	            </c:otherwise>
+	        </c:choose> 
+		</p>
 
 	</div>
 
