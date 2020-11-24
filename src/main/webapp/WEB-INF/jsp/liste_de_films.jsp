@@ -31,7 +31,7 @@
 		</div>
 		
 		<c:forEach items="${films}" var="film">
-		<h2><a href="/Fimotheque/${film.getTitre()}">${film.getTitre()}</a></h2>
+		<h2><a href="/Filmotheque/film/${film.getId()}">${film.getTitre()}</a></h2>
 		<p>${film.getDescription()}</p>
 	    </c:forEach>		
 

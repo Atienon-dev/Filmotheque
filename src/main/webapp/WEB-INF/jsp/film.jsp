@@ -31,8 +31,14 @@
 		</div>
 		
 		
-		<h2>${film.getTitre()}</a></h2>
-		<p>${film.getDescription()}</p>		
+		<h2 style="text-align:center">${film.getTitre()}</a></h2>
+		<p>${film.getDescription()}</p>	
+		<p>Réalisateur : ${film.getRealisateur().getNom()}	${film.getRealisateur().getPrenom()}</p>
+		<p>Acteurs :
+		<c:forEach items="${film.getActeurs()}" var="acteur">
+		${acteur.getNom()} ${acteur.getPrenom()}</n>
+	    </c:forEach>
+	    </p>
 
 	</div>
 

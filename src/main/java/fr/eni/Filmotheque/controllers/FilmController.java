@@ -23,11 +23,17 @@ public class FilmController {
 	
 	@GetMapping("/liste_de_films")
 	public String getListeFilms(@ModelAttribute("films") ArrayList<Film> filmRef) {
-		System.out.println("je suis dans getListeFilms");
 		
 		filmRef.addAll(service.getAllFilms());
 
 		return "liste_de_films";
+	}
+	
+	@GetMapping("/film/{id}")
+	public String getFilm(@ModelAttribute("film") Film filmRef) {
+		service.getFilm(filmRef);
+		System.out.println(filmRef);
+		return "film";
 	}
 
 }

@@ -40,8 +40,9 @@ public class Film {
 		
 	}
 	
-	public Film(String titre, String description) {
+	public Film(Long id,String titre, String description) {
 		super();
+		this.id = id;
 		this.titre = titre;
 		this.description = description;
 	}
