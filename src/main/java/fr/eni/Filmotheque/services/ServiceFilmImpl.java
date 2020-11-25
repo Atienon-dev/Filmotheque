@@ -41,12 +41,10 @@ public class ServiceFilmImpl implements ServiceFilm{
 	@Override
 	public void getFilm(Film film1) {
 		
-		System.out.println("Je suis dans getFilm");
-		System.out.println("film1 id : " + film1.getId());
 		for(Film film:films) {
-			System.out.println("film id : " + film.getId());
+			
 			if (film.getId()==film1.getId()) {
-				System.out.println(film);
+				
 				film1.setTitre(film.getTitre());
 				film1.setDescription(film.getDescription());
 				film1.setActeurs(film.getActeurs());

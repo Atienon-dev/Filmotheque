@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Liste Films</title>
+<title>Film</title>
 <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="bootstrap-3.3.7/css/bootstrap-theme.min.css">
@@ -23,21 +23,21 @@
 	</nav>
 
 	<div class="container">
+	
 		<div class="jumbotron">
 			<h1 style="text-align:center">
 				Filmothèque
 			</h1>
-			<h2 style="text-align:center">Avis Film</h2>
+			<h2 style="text-align:center">Liste de Films</h2>
 		</div>
-		
-		
-		<h2 style="text-align:center">${film.getTitre()}</a></h2>
+				
+		<h3 style="text-align:center">${film.getTitre()}</h3>
 		<p>${film.getDescription()}</p>	
 		
 		<p>Réalisateur :
 			<c:choose>
 	            <c:when test="${empty film.getRealisateur()}">
-	              <a href="ajout_real"> ajouter un réalisateur</a>
+	              <a href="./${film.getId()}/modifReal"> ajouter un réalisateur</a>
 	            </c:when>
 	            <c:otherwise>
 	                ${film.getRealisateur().getNom()}	${film.getRealisateur().getPrenom()}
@@ -48,14 +48,14 @@
 		<p>Acteurs :
 			<c:choose>
 				<c:when test="${empty film.getActeurs()}">
-	              <a href="ajout_acteurs"> ajouter des acteurs</a>
+	              <a href="./${film.getId()}/ajoutActeurs"> ajouter des acteurs</a>
 	            </c:when>
 	            <c:otherwise>
-	                <ol style="list-style:none;">
+	                <ul style="list-style:none;">
 		                <c:forEach items="${film.getActeurs()}" var="acteur">
 		                <li>${acteur.getNom()} ${acteur.getPrenom()}</li>
 			    		</c:forEach>
-		    		</ol>
+		    		</ul>
 	            </c:otherwise>
 	        </c:choose> 
 		</p>

@@ -30,7 +30,7 @@ public class ConnexionController {
 		boolean cnx= this.serviceCnx.connexionUtilisateur(utilisateur);
 				
 		if (cnx){
-			return ("redirect:http://localhost:8080/Filmotheque/liste_de_films");
+			return ("redirect:http://localhost:8080/Filmotheque/listeDeFilms");
 		}else {
 			return ("redirect:http://localhost:8080/Filmotheque/");
 		}
