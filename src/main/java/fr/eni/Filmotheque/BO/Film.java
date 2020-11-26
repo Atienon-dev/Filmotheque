@@ -3,18 +3,25 @@ package fr.eni.Filmotheque.BO;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-//@Entity
+@Entity
 public class Film {
 /*------------------------------------------------------------------------------------------------------------------------
   Attributes
  ------------------------------------------------------------------------------------------------------------------------*/	
-	//@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String titre;
@@ -23,12 +30,21 @@ public class Film {
 	
 	private Date dateDeSortie;
 	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@Basic(fetch=FetchType.LAZY)
 	private Personne realisateur;
 	
+	@ManyToMany(cascade=CascadeType.ALL)
+	//@JoinTable(name="acteurs_films",joinColumns= {@JoinColumn(name="acteur_id")},
+	//	inverseJoinColumns=@JoinColumn(name="film_id")})
 	private List<Personne> acteurs;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	@Basic(fetch=FetchType.LAZY)
 	private Categorie categorie;
 	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="film")
+	@Basic(fetch=FetchType.LAZY)
 	private List<Avis> avis;
 	
 /*------------------------------------------------------------------------------------------------------------------------
@@ -40,6 +56,18 @@ public class Film {
 		
 	}
 	
+	public Film(String titre, String description, Date dateDeSortie, Personne realisateur, List<Personne> acteurs,
+			Categorie categorie, List<Avis> avis) {
+		super();
+		this.titre = titre;
+		this.description = description;
+		this.dateDeSortie = dateDeSortie;
+		this.realisateur = realisateur;
+		this.acteurs = acteurs;
+		this.categorie = categorie;
+		this.avis = avis;
+	}
+
 	public Film(Long id,String titre, String description) {
 		super();
 		this.id = id;

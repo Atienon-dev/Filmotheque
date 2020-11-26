@@ -13,11 +13,10 @@ import fr.eni.Filmotheque.BO.Film;
 import fr.eni.Filmotheque.BO.Personne;
 
 @Service
-@SessionAttributes("FilmIni")
 public class ServiceFilmImpl implements ServiceFilm{
 	
 	Film film;
-	List<Film> films = new ArrayList();
+	List<Film> films = new ArrayList<Film>();
 	ServicePersonne servicePersonne;
 	
 	Film film1;

@@ -2,19 +2,23 @@ package fr.eni.Filmotheque.BO;
 
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-//@Entity
+@Entity
 public class Utilisateur {
 
 /*------------------------------------------------------------------------------------------------------------------------
   Attributes
  ------------------------------------------------------------------------------------------------------------------------*/	
-	//@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String pseudo;
@@ -23,6 +27,8 @@ public class Utilisateur {
 	
 	private String statut;
 	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="auteur")
+	@Basic(fetch=FetchType.LAZY)
 	private List<Avis> listAvis;
 	
 /*------------------------------------------------------------------------------------------------------------------------

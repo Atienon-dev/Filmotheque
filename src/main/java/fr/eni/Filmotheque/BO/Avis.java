@@ -1,26 +1,34 @@
 package fr.eni.Filmotheque.BO;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-//@Entity
+@Entity
 public class Avis {
 	
 /*------------------------------------------------------------------------------------------------------------------------
   Attributes
  ------------------------------------------------------------------------------------------------------------------------*/
-		//@Id
-		//@GeneratedValue(strategy=GenerationType.IDENTITY)
+		@Id
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Long id;
 		
 		private String titre;
 		
 		private String description;
 		
+		@ManyToOne(cascade=CascadeType.ALL)
+		@Basic(fetch=FetchType.LAZY)
 		private Film film;
 		
+		@ManyToOne(cascade=CascadeType.ALL)
+		@Basic(fetch=FetchType.LAZY)
 		private Utilisateur auteur;
 		
 /*------------------------------------------------------------------------------------------------------------------------

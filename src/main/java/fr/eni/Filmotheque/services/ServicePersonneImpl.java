@@ -12,7 +12,7 @@ import fr.eni.Filmotheque.BO.Personne;
 public class ServicePersonneImpl implements ServicePersonne{
 	
 	private Personne personne= new Personne();
-	private List<Personne> personnes = new ArrayList();
+	private List<Personne> personnes = new ArrayList<Personne>();
 	
 	public ServicePersonneImpl() {
 		Personne personne1=new Personne(Integer.toUnsignedLong(0),"Weaver","Sigourney");

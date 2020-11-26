@@ -18,7 +18,6 @@ import fr.eni.Filmotheque.BO.Personne;
 import fr.eni.Filmotheque.BO.Utilisateur;
 import fr.eni.Filmotheque.services.ServiceFilm;
 
-@SessionAttributes("utilisateur")
 @Controller
 public class FilmController {
 	
