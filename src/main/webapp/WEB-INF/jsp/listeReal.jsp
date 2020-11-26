@@ -29,12 +29,12 @@
 			</h1>
 			<h2 style="text-align:center">Modification Réalisateur</h2>
 		</div>
-		
+		<a href="/Filmotheque/film/${film.getId()}">Retour à la fiche du film</a>
 		<form:form method="POST" action="modifierReal" modelAttribute="film" >
 			<c:forEach items="${personnes}" var="personne">			
 					<div>
-						<form:radiobutton path="realisateur" value="${personne.getId()}" />
-						<form:label path="realisateur">
+						<form:radiobutton path="realisateur.id" value="${personne.getId()}" />
+						<form:label path="realisateur.id">
 							<a href="/Filmotheque/personne/${personne.getId()}">${personne.getNom()} ${personne.getPrenom()}</a>
 						</form:label>
 					</div>				

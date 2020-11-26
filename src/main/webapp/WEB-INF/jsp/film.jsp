@@ -28,10 +28,9 @@
 			<h1 style="text-align:center">
 				Filmothèque
 			</h1>
-			<h2 style="text-align:center">Liste de Films</h2>
+			<h2 style="text-align:center">${film.getTitre()}</h2>
 		</div>
-				
-		<h3 style="text-align:center">${film.getTitre()}</h3>
+		<a href="/Filmotheque/listeDeFilms">Retour à la liste</a>	
 		<p>${film.getDescription()}</p>	
 		
 		<p>Réalisateur :
@@ -40,7 +39,7 @@
 	              <a href="./${film.getId()}/modifReal"> ajouter un réalisateur</a>
 	            </c:when>
 	            <c:otherwise>
-	                ${film.getRealisateur().getNom()}	${film.getRealisateur().getPrenom()}
+	                ${film.getRealisateur().getNom()}	${film.getRealisateur().getPrenom()} <a href="./${film.getId()}/modifReal"> modifier réalisateur</a>
 	            </c:otherwise>
 	        </c:choose> 
         </p>
@@ -55,6 +54,7 @@
 		                <c:forEach items="${film.getActeurs()}" var="acteur">
 		                <li>${acteur.getNom()} ${acteur.getPrenom()}</li>
 			    		</c:forEach>
+			    		<li><a href="./${film.getId()}/ajoutActeurs"> ajouter des acteurs</a></li>
 		    		</ul>
 	            </c:otherwise>
 	        </c:choose> 
