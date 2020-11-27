@@ -1,25 +1,26 @@
 package fr.eni.Filmotheque.services;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
-import fr.eni.Filmotheque.BO.Avis;
 import fr.eni.Filmotheque.BO.Utilisateur;
+import fr.eni.Filmotheque.dal.UtilisateurRepository;
 
 @Service
 public class ServiceConnexionImpl implements ServiceConnexion{
 	
 	private Utilisateur utilisateurRef;
+	private UtilisateurRepository utilRepo;
 	
-	public ServiceConnexionImpl() {
-		List<Avis> avis = new ArrayList<Avis>();
-		this.utilisateurRef = new Utilisateur(Integer.toUnsignedLong(15),"Moi","mdp","admin",avis);
+	public ServiceConnexionImpl(UtilisateurRepository utilRepo) {
+		
+		this.utilRepo=utilRepo;
 	}
 	
 	public boolean connexionUtilisateur(Utilisateur utilisateur) {
-		if (utilisateur.getPseudo().equals( this.utilisateurRef.getPseudo())
+		
+		this.utilisateurRef=this.utilRepo.findByPseudo(utilisateur.getPseudo());
+		
+		if (this.utilisateurRef != null && utilisateur.getPseudo().equals( this.utilisateurRef.getPseudo())
 				&& utilisateur.getMotDePasse().equals(this.utilisateurRef.getMotDePasse())
 				) {
 				return true;

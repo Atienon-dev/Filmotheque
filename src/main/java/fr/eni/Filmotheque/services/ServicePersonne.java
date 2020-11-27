@@ -11,6 +11,6 @@ public interface ServicePersonne {
 	
 	public Personne getPersonne(Long id);
 	
-	public List<Personne> getAllActeurs(List<Personne> acteurs) ;
+	public List<Personne> recupererInfosActeurs(List<Personne> acteurs) ;
 
 }

@@ -23,11 +23,11 @@
 	</nav>
 
 	<div class="container">
+	
 		<div class="jumbotron">
-			<h1 style="text-align:center">
-				Filmothèque
-			</h1>
+			<h1 style="text-align:center">Filmothèque</h1>
 			<h2 style="text-align:center">Liste de Films</h2>
+			<a href="/Filmotheque/deconnexion">déconnexion</a>
 		</div>
 		
 		<c:forEach items="${films}" var="film">

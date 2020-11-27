@@ -11,7 +11,7 @@ public interface ServiceFilm {
 	
 	public Film getFilm(Long id);
 	
-	public Film ajouterActeurs(Film film);
+	public Film ajouterActeurs(Film filmRef);
 	
 	public Film modifierRealisateurs(Film film);
 

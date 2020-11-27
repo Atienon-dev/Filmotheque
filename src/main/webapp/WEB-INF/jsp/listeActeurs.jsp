@@ -26,13 +26,16 @@ class Cpt { private int val=0;} %>
 	</nav>
 
 	<div class="container">
+	
 		<div class="jumbotron">
-			<h1 style="text-align:center">
-				Filmothèque
-			</h1>
-			<h2 style="text-align:center">Ajout Acteurs</h2>
+			<h1 style="text-align:center">Filmothèque</h1>
+			<h2 style="text-align:center">${film.getTitre()}</h2>
+			<a href="/Filmotheque/deconnexion">déconnexion</a>
 		</div>
+		
 		<a href="/Filmotheque/film/${film.getId()}">Retour à la fiche du film</a>
+		<h3>Modifier Acteurs</h3>
+		
 		<form:form method="POST" action="ajoutActeur" modelAttribute="film" >
 		 
 			<c:forEach items="${personnes}" var="personne" varStatus="vs">						

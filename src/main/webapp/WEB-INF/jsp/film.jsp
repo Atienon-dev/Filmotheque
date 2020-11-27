@@ -25,11 +25,11 @@
 	<div class="container">
 	
 		<div class="jumbotron">
-			<h1 style="text-align:center">
-				Filmothèque
-			</h1>
+			<h1 style="text-align:center">Filmothèque</h1>
 			<h2 style="text-align:center">${film.getTitre()}</h2>
+			<a href="/Filmotheque/deconnexion">déconnexion</a>
 		</div>
+		
 		<a href="/Filmotheque/listeDeFilms">Retour à la liste</a>	
 		<p>${film.getDescription()}</p>	
 		
