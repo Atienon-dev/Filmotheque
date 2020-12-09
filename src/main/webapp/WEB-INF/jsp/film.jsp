@@ -59,6 +59,8 @@
 	            </c:otherwise>
 	        </c:choose> 
 		</p>
+		
+		<!--  <a href="./${film.getId()}/ajouterAvis">Ajouter un avis</a>-->
 
 	</div>
 

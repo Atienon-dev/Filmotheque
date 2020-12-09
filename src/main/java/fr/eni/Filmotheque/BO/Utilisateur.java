@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,14 +25,16 @@ public class Utilisateur {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	
+	@Column(unique=true)
 	private String pseudo;
 	
 	private String motDePasse;
 	
 	private String statut;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="auteur")
-	@Basic(fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL,orphanRemoval=true, mappedBy="auteur")
+	@Basic(fetch=FetchType.EAGER)
 	private List<Avis> listAvis;
 	
 /*------------------------------------------------------------------------------------------------------------------------

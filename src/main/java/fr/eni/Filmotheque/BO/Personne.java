@@ -26,13 +26,11 @@ public class Personne {
 	
 	private String prenom;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	//@JoinTable(name="acteurs_films",joinColumns= {@JoinColumn(name="acteur_id")},
-	//	inverseJoinColumns=@JoinColumn(name="film_id")})
+	@ManyToMany(cascade=CascadeType.ALL,mappedBy="acteurs")
 	private List<Film> filmJoue;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="realisateur")
-	@Basic(fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL,orphanRemoval=true, mappedBy="realisateur")
+	@Basic(fetch=FetchType.EAGER)
 	private List<Film> filmRealise;
 
 /*------------------------------------------------------------------------------------------------------------------------

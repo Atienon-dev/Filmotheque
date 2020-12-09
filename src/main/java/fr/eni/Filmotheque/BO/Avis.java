@@ -23,12 +23,12 @@ public class Avis {
 		
 		private String description;
 		
-		@ManyToOne(cascade=CascadeType.ALL)
-		@Basic(fetch=FetchType.LAZY)
+		@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
+		@Basic(fetch=FetchType.EAGER)
 		private Film film;
 		
-		@ManyToOne(cascade=CascadeType.ALL)
-		@Basic(fetch=FetchType.LAZY)
+		@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
+		@Basic(fetch=FetchType.EAGER)
 		private Utilisateur auteur;
 		
 /*------------------------------------------------------------------------------------------------------------------------

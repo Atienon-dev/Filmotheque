@@ -48,8 +48,8 @@ public class ServiceFilmImpl implements ServiceFilm{
 			acteurTemp.setId(this.servicePersonne.getPersonne(acteurTemp.getId()).getId());
 			acteurTemp.setNom(this.servicePersonne.getPersonne(acteurTemp.getId()).getNom());
 			acteurTemp.setPrenom(this.servicePersonne.getPersonne(acteurTemp.getId()).getPrenom());
-			acteurTemp.setFilmJoue(this.servicePersonne.getPersonne(acteurTemp.getId()).getFilmJoue());;
-			acteurTemp.setFilmRealise(this.servicePersonne.getPersonne(acteurTemp.getId()).getFilmRealise());;
+			acteurTemp.setFilmJoue(this.servicePersonne.getPersonne(acteurTemp.getId()).getFilmJoue());
+			acteurTemp.setFilmRealise(this.servicePersonne.getPersonne(acteurTemp.getId()).getFilmRealise());
 		}
 		System.out.println("acteursTemp : " + acteursTemp);
 		
@@ -91,9 +91,7 @@ public class ServiceFilmImpl implements ServiceFilm{
 	public Film modifierRealisateurs(Film filmRef) {
 		this.film=getFilm(filmRef.getId());
 	
-		this.film.setRealisateur(servicePersonne.getPersonne(filmRef.getRealisateur().getId()));
-		
-		
+		this.film.setRealisateur(servicePersonne.getPersonne(filmRef.getRealisateur().getId()));		
 		
 		return this.filmRepo.save(this.film);
 	}

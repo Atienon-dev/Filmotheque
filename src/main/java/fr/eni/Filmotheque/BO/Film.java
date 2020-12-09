@@ -10,10 +10,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Film {
@@ -30,21 +30,19 @@ public class Film {
 	
 	private Date dateDeSortie;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@Basic(fetch=FetchType.LAZY)
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
+	@Basic(fetch=FetchType.EAGER)
 	private Personne realisateur;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	//@JoinTable(name="acteurs_films",joinColumns= {@JoinColumn(name="acteur_id")},
-	//	inverseJoinColumns=@JoinColumn(name="film_id")})
+	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name="acteurs_films")
 	private List<Personne> acteurs;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@Basic(fetch=FetchType.LAZY)
+	@ManyToOne
 	private Categorie categorie;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="film")
-	@Basic(fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="film")
+	@Basic(fetch=FetchType.EAGER)
 	private List<Avis> avis;
 	
 /*------------------------------------------------------------------------------------------------------------------------

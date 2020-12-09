@@ -3,8 +3,6 @@ package fr.eni.Filmotheque.services;
 import java.util.List;
 
 import fr.eni.Filmotheque.BO.Film;
-import fr.eni.Filmotheque.BO.Personne;
-
 public interface ServiceFilm {
 	
 	public List<Film> getAllFilms();

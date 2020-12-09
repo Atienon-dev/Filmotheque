@@ -43,7 +43,6 @@ public class ConnexionController {
 	
 	@GetMapping("/deconnexion")
 	public String Deconnexion() {
-		System.out.println("je me deco");
 		session.invalidate();
 	return ("redirect:http://localhost:8080/Filmotheque/");
 		
