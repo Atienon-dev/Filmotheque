@@ -38,11 +38,11 @@ class Cpt { private int val=0;} %>
 		
 		<form:form method="POST" action="ajoutActeur" modelAttribute="film" >
 		 
-			<c:forEach items="${personnes}" var="personne" varStatus="vs">						
+			<c:forEach items="${acteurs}" var="acteurs" varStatus="vs">						
 					<div>
-						<form:checkbox path="acteurs[${vs.count-1}].id" value="${personne.getId()}" />
+						<form:checkbox path="acteurs[${vs.count-1}].id" value="${acteurs.getId()}" />
 						<form:label path="acteurs[${vs.count-1}].id" >
-							<a href="/Filmotheque/personne/${personne.getId()}">${personne.getNom()} ${personne.getPrenom()}</a>
+							<a href="/Filmotheque/personne/${acteurs.getId()}">${acteurs.getNom()} ${acteurs.getPrenom()}</a>
 						</form:label>
 					</div>	
 							

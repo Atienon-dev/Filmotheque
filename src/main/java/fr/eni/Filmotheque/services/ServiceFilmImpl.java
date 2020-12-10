@@ -51,7 +51,6 @@ public class ServiceFilmImpl implements ServiceFilm{
 			acteurTemp.setFilmJoue(this.servicePersonne.getPersonne(acteurTemp.getId()).getFilmJoue());
 			acteurTemp.setFilmRealise(this.servicePersonne.getPersonne(acteurTemp.getId()).getFilmRealise());
 		}
-		System.out.println("acteursTemp : " + acteursTemp);
 		
 		filmRef=this.getFilm(filmRef.getId());
 		

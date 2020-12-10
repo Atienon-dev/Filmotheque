@@ -2,12 +2,11 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Liste Films</title>
+<title>Connexion</title>
 <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="bootstrap-3.3.7/css/bootstrap-theme.min.css">
@@ -23,27 +22,31 @@
 	</nav>
 
 	<div class="container">
-	
 		<div class="jumbotron">
-			<h1 style="text-align:center">Filmothèque</h1>
-			<h2 style="text-align:center">${film.getTitre()}</h2>
-			<a href="/Filmotheque/deconnexion">déconnexion</a>
+			<h1 style="text-align:center">
+				Filmothèque
+			</h1>
+			<h2 style="text-align:center">Connexion</h2>
 		</div>
-		
-		<a href="/Filmotheque/film/${film.getId()}">Retour à la fiche du film</a>
-		<h3>Modifier Réalisateur</h3>		
-		
-		<form:form method="POST" action="modifierReal" modelAttribute="film" >
-			<c:forEach items="${realisateur}" var="realisateur">			
-					<div>
-						<form:radiobutton path="realisateur.id" value="${realisateur.getId()}" />
-						<form:label path="realisateur.id">
-							<a href="/Filmotheque/personne/${realisateur.getId()}">${realisateur.getNom()} ${realisateur.getPrenom()}</a>
-						</form:label>
-					</div>				
-		    </c:forEach>	
-	    	<input type="submit" value="Submit" />
-		</form:form>	
+
+		<h3>Formulaire de saisie :</h3>
+		<form:form method="POST" action="./ajouterAvis" modelAttribute="avis">
+			<div>
+				<form:label path="titre">Titre :</form:label>
+				<form:input path="titre" />
+			</div>
+			<div>
+				<form:label path="description">Votre avis :</form:label>
+				<form:textarea path="description" />
+			</div>
+			<div>
+				<form:hidden path="film" value="${film.getId()}" />
+			</div>
+			<div>
+				<form:hidden path="auteur" value="1" />
+			</div>
+			<input type="submit" value="Submit" />
+		</form:form>
 
 	</div>
 

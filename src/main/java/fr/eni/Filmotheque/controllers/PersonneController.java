@@ -27,7 +27,7 @@ private HttpSession session;
 	}
 	
 	@GetMapping("/film/{id}/ajoutActeurs")
-	public String getListeActeurs(@ModelAttribute("personnes") ArrayList<Personne> personneRef, @ModelAttribute("film") Film film) {
+	public String getListeActeurs(@ModelAttribute("acteurs") ArrayList<Personne> personneRef, @ModelAttribute("film") Film film) {
 		
 		if(!(session.getAttribute("utilisateur")!= null)){
 			return ("redirect:http://localhost:8080/Filmotheque/");
@@ -39,7 +39,7 @@ private HttpSession session;
 	}
 	
 	@GetMapping("/film/{id}/modifReal")
-	public String getListeReal(@ModelAttribute("personnes") ArrayList<Personne> personneRef, @ModelAttribute("film") Film film) {
+	public String getListeReal(@ModelAttribute("realisateur") ArrayList<Personne> personneRef, @ModelAttribute("film") Film film) {
 		
 		if(!(session.getAttribute("utilisateur")!= null)){
 			return ("redirect:http://localhost:8080/Filmotheque/");
